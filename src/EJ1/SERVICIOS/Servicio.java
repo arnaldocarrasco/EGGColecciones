@@ -17,6 +17,10 @@ public class Servicio {
     private List<RazasPerros> perrosList = new ArrayList<>();
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
+    public Servicio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void Menu1() {
 
         String opcion;
@@ -39,6 +43,7 @@ public class Servicio {
                         System.out.println(aux.toString());
                     }
                     sp.Menu2();
+                    System.out.println("-------------------------------------");
                     for (RazasPerros aux : perrosList) {
                         System.out.println(aux.toString());
                     }
@@ -49,12 +54,12 @@ public class Servicio {
 
     }
 
-    public RazasPerros crearPerro(RazasPerros razasPerros) {
+    public RazasPerros crearPerro() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Escriba el nombre de la raza");
-        razasPerros.setRaza(leer.next());
+        String raza = leer.next();
 
-        return new RazasPerros();
+        return new RazasPerros(raza);
     }
 
     public void Menu2() {
@@ -67,10 +72,11 @@ public class Servicio {
         Iterator<RazasPerros> it = perrosList.iterator();
 
         while (it.hasNext()) {
-            String encontrado = it.next().getRaza();
-            if (buscar.equals(encontrado)) {
+
+            if (it.next().getRaza().equals(buscar)) {
                 it.remove();
-            }
+            }else
+                System.out.println("No lo toma");
         }
 
     }
