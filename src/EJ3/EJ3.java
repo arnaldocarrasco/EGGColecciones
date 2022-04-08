@@ -7,6 +7,7 @@ package EJ3;
 
 import EJ3.Servicios.ServicioEJ3;
 import EJ3.Entidades.Alumno;
+import EJ3.Entidades.Nota;
 import java.util.*;
 
 /**
@@ -46,6 +47,27 @@ public class EJ3 {
             }
 
         } while (!opcion.equals("B"));
+
+        Nota n1=new Nota();
+        String opcion2;
+        do {
+            System.out.println("ESCRIBA EL NOMBRE DEL ALUMNO QUE DESEA PROMEDIAR");
+            System.out.println("------------------------------------------------");
+            String nombre = leer.next();
+            double promedio = 0;
+            for (Alumno aux : alumnoList) {
+                if (aux.getNombre().equals(nombre)) {
+                    promedio = (aux.getNota().getNota1()+ aux.getNota().getNota2()+aux.getNota().getNota3())/3;
+                }
+            }
+            System.out.println("La nota final de "+nombre+"  es: "+ promedio);
+            
+            System.out.println("Si desea salir escriba ´B´, si desea cargar otro alumno, presione ENTER ");
+            opcion2=leer.next().toUpperCase();
+
+        } while (!opcion2.equals("B"));
+
+        
 
     }
 }
