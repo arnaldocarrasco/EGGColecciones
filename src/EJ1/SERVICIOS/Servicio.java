@@ -17,9 +17,7 @@ public class Servicio {
     private List<RazasPerros> perrosList = new ArrayList<>();
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    public Servicio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public void Menu1() {
 
@@ -72,11 +70,10 @@ public class Servicio {
         Iterator<RazasPerros> it = perrosList.iterator();
 
         while (it.hasNext()) {
-
-            if (it.next().getRaza().equals(buscar)) {
+            RazasPerros aux = it.next();
+            if (aux.equals(buscar)) {
                 it.remove();
-            }else
-                System.out.println("No lo toma");
+            }
         }
 
     }
